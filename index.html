@@ -285,12 +285,16 @@ function injectAction(){
     setTimeout(()=>{
         msgSucesso.classList.remove("show");
         
-        // COMANDO PARA ABRIR O JOGO INSTALADO DIRETAMENTE (COM FALLBACK)
+        // PACOTE DO JOGO IDENTIFICADO: com.dts.freefireth
         const ffPackage = "com.dts.freefireth";
-        const intent = `intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=${ffPackage};end`;
         
-        // Tenta abrir o App instalado usando a Intent completa do Android
-        window.location.href = intent;
+        // Tenta abrir diretamente pelo protocolo de pacote do Android (mais agressivo)
+        window.location.href = "android-app://" + ffPackage;
+        
+        // Fallback: Se não abrir em 500ms, tenta a Intent de Launcher padrão
+        setTimeout(() => {
+          window.location.href = "intent://#Intent;package=" + ffPackage + ";action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end";
+        }, 500);
 
     }, 1200);
   }, 1800);
