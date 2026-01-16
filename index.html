@@ -196,7 +196,6 @@ function keyExpired(k) {
 btnLogin.addEventListener('click', () => {
     let inputVal = keyInput.value.trim().toUpperCase();
 
-    // 1. Key Mestra (Sempre ADM)
     if (inputVal === '102938') {
         userRole = 'adm';
         msgSucesso.textContent = "Bem-vindo DONO!";
@@ -205,7 +204,6 @@ btnLogin.addEventListener('click', () => {
         return;
     }
 
-    // 2. Verificação de Chaves no Banco
     if (keysDB[inputVal]) {
         if (keyExpired(keysDB[inputVal])) {
             msgSucesso.textContent = "Key expirada!";
@@ -215,15 +213,9 @@ btnLogin.addEventListener('click', () => {
             saveDB();
             return;
         }
-
         userRole = keysDB[inputVal].role;
         msgSucesso.textContent = (userRole === 'adm' ? "Bem-vindo ADM!" : "Bem-vindo Cliente!");
-        
-        if (userRole === 'adm') {
-            btnKeyGen.style.display = 'block';
-        } else {
-            btnKeyGen.style.display = 'none';
-        }
+        btnKeyGen.style.display = (userRole === 'adm' ? 'block' : 'none');
         entrarNoPainel();
     } else {
         msgSucesso.textContent = "Key inválida!";
@@ -250,22 +242,15 @@ function entrarNoPainel() {
 document.getElementById('btnGerarKey').addEventListener('click', () => {
     const tipo = document.getElementById('keyType').value;
     const qty = parseInt(document.getElementById('keyQty').value, 10);
-    
     for (let i = 0; i < qty; i++) {
         const randomStr = Math.random().toString(36).substring(2, 7).toUpperCase();
         const key = `LOST-${randomStr}`;
         let exp = Date.now();
-        
         if (tipo === '1h') exp += 3600000;
         else if (tipo === '1d') exp += 86400000;
         else if (tipo === '1w') exp += 604800000;
         else if (tipo === '1m') exp += 2592000000;
-        
-        keysDB[key] = { 
-            role: 'cliente', 
-            expire: exp 
-        };
-        
+        keysDB[key] = { role: 'cliente', expire: exp };
         const dataExp = new Date(exp).toLocaleString();
         keyList.innerHTML += `<div><strong>${key}</strong> - Expira: ${dataExp}</div>`;
     }
@@ -288,19 +273,21 @@ drawFovCircle();
 /* ===== AUX BUTTONS ===== */
 ['tipoFocoButtons','auxilioHeadButtons'].forEach(id=>{const btns=document.querySelectorAll(`#${id} .aux-btn`);btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');}));});
 
-/* ===== INJECT (CORRIGIDO PARA ABRIR FREE FIRE) ===== */
+/* ===== INJECT (ARRUMADO PARA ABRIR O FREE FIRE) ===== */
 function injectAction(){
   document.getElementById('bannerInject').style.display="block";
-  msgSucesso.textContent="INJETANDO CÓDIGOS...";msgSucesso.classList.add("show");
+  msgSucesso.textContent="INJETANDO CÓDIGOS...";
+  msgSucesso.classList.add("show");
   
   setTimeout(()=>{
     msgSucesso.textContent="CÓDIGOS INJETADOS!!! 😈";
+    
     setTimeout(()=>{
         msgSucesso.classList.remove("show");
-        // Comando para abrir o Free Fire Original no Android
+        // Tenta abrir o Free Fire instalado usando a Intent padrão do Android
         window.location.href = "intent://#Intent;scheme=android-app;package=com.dts.freefireth;end";
-    },1500);
-  },2000);
+    }, 1500);
+  }, 2000);
 }
 document.getElementById("btnInject").addEventListener("click",injectAction);
 document.getElementById("btnInjectInfo").addEventListener("click",injectAction);
