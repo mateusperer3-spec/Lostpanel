@@ -219,7 +219,6 @@ btnLogin.addEventListener('click', () => {
         userRole = keysDB[inputVal].role;
         msgSucesso.textContent = (userRole === 'adm' ? "Bem-vindo ADM!" : "Bem-vindo Cliente!");
         
-        // CLIENTE NÃO VÊ O BOTÃO DE GERAR KEY
         if (userRole === 'adm') {
             btnKeyGen.style.display = 'block';
         } else {
@@ -247,7 +246,7 @@ function entrarNoPainel() {
     }, 1500);
 }
 
-/* ===== GERADOR DE KEYS (Configurado para Cliente) ===== */
+/* ===== GERADOR DE KEYS ===== */
 document.getElementById('btnGerarKey').addEventListener('click', () => {
     const tipo = document.getElementById('keyType').value;
     const qty = parseInt(document.getElementById('keyQty').value, 10);
@@ -262,7 +261,6 @@ document.getElementById('btnGerarKey').addEventListener('click', () => {
         else if (tipo === '1w') exp += 604800000;
         else if (tipo === '1m') exp += 2592000000;
         
-        // Define explicitamente como CLIENTE
         keysDB[key] = { 
             role: 'cliente', 
             expire: exp 
@@ -290,15 +288,19 @@ drawFovCircle();
 /* ===== AUX BUTTONS ===== */
 ['tipoFocoButtons','auxilioHeadButtons'].forEach(id=>{const btns=document.querySelectorAll(`#${id} .aux-btn`);btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');}));});
 
-/* ===== INJECT ===== */
+/* ===== INJECT (CORRIGIDO PARA ABRIR FREE FIRE) ===== */
 function injectAction(){
   document.getElementById('bannerInject').style.display="block";
   msgSucesso.textContent="INJETANDO CÓDIGOS...";msgSucesso.classList.add("show");
+  
   setTimeout(()=>{
     msgSucesso.textContent="CÓDIGOS INJETADOS!!! 😈";
-    setTimeout(()=>{msgSucesso.classList.remove("show");},2500);
-    window.open('freefire://com.dts.freefireth','_self');
-  },1500);
+    setTimeout(()=>{
+        msgSucesso.classList.remove("show");
+        // Comando para abrir o Free Fire Original no Android
+        window.location.href = "intent://#Intent;scheme=android-app;package=com.dts.freefireth;end";
+    },1500);
+  },2000);
 }
 document.getElementById("btnInject").addEventListener("click",injectAction);
 document.getElementById("btnInjectInfo").addEventListener("click",injectAction);
@@ -325,5 +327,4 @@ document.getElementById('temaAmarelo').addEventListener('click',()=>document.doc
 document.getElementById('temaRosa').addEventListener('click',()=>document.documentElement.style.setProperty('--primary-color','pink'));
 </script>
 </body>
-  </html>
-  
+</html>
