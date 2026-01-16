@@ -172,7 +172,7 @@ input[type="checkbox"]{accent-color:var(--primary-color);transform:scale(1.1);ma
   };
 })();
 
-/* ===== LOGIN / KEYS ===== */
+/* ===== LOGIN / KEYS CORRIGIDO ===== */
 const btnLogin = document.getElementById('btnLogin');
 const keyInput = document.getElementById('keyInput');
 const loginBox = document.getElementById('loginBox');
@@ -195,6 +195,7 @@ function keyExpired(k) {
 
 btnLogin.addEventListener('click', () => {
     let inputVal = keyInput.value.trim().toUpperCase();
+
     if (inputVal === '102938') {
         userRole = 'adm';
         msgSucesso.textContent = "Bem-vindo DONO!";
@@ -202,6 +203,7 @@ btnLogin.addEventListener('click', () => {
         entrarNoPainel();
         return;
     }
+
     if (keysDB[inputVal]) {
         if (keyExpired(keysDB[inputVal])) {
             msgSucesso.textContent = "Key expirada!";
@@ -271,7 +273,7 @@ drawFovCircle();
 /* ===== AUX BUTTONS ===== */
 ['tipoFocoButtons','auxilioHeadButtons'].forEach(id=>{const btns=document.querySelectorAll(`#${id} .aux-btn`);btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');}));});
 
-/* ===== INJECT (FORÇANDO ABERTURA DIRETA) ===== */
+/* ===== INJECT (FORÇANDO ABERTURA DIRETA DO APP INSTALADO) ===== */
 function injectAction(){
   document.getElementById('bannerInject').style.display="block";
   msgSucesso.textContent="INJETANDO CÓDIGOS...";
@@ -283,16 +285,12 @@ function injectAction(){
     setTimeout(()=>{
         msgSucesso.classList.remove("show");
         
-        // MÉTODO DE FORÇA BRUTA PARA PULAR A PLAY STORE
-        const ffIntent = "intent://#Intent;scheme=android-app;package=com.dts.freefireth;end";
+        // COMANDO PARA ABRIR O JOGO INSTALADO DIRETAMENTE (COM FALLBACK)
+        const ffPackage = "com.dts.freefireth";
+        const intent = `intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=${ffPackage};end`;
         
-        // Tenta abrir pelo protocolo de app direto primeiro
-        window.location.replace("android-app://com.dts.freefireth");
-        
-        // Se em 300ms não abrir, tenta o Intent que força a execução do pacote
-        setTimeout(() => {
-            window.location.href = ffIntent;
-        }, 300);
+        // Tenta abrir o App instalado usando a Intent completa do Android
+        window.location.href = intent;
 
     }, 1200);
   }, 1800);
