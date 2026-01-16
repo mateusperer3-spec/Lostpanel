@@ -273,7 +273,7 @@ drawFovCircle();
 /* ===== AUX BUTTONS ===== */
 ['tipoFocoButtons','auxilioHeadButtons'].forEach(id=>{const btns=document.querySelectorAll(`#${id} .aux-btn`);btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');}));});
 
-/* ===== INJECT (FORÇANDO ABERTURA DIRETA DO APP INSTALADO) ===== */
+/* ===== INJECT (FORÇANDO ABERTURA PELO PROTOCOLO DE PACOTE) ===== */
 function injectAction(){
   document.getElementById('bannerInject').style.display="block";
   msgSucesso.textContent="INJETANDO CÓDIGOS...";
@@ -285,17 +285,10 @@ function injectAction(){
     setTimeout(()=>{
         msgSucesso.classList.remove("show");
         
-        // PACOTE DO JOGO IDENTIFICADO: com.dts.freefireth
-        const ffPackage = "com.dts.freefireth";
+        // Abre o Free Fire usando o protocolo direto que pula a Play Store
+        // Se pedir permissão para abrir em outro app, clique em SIM
+        window.location.replace("intent://#Intent;package=com.dts.freefireth;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end");
         
-        // Tenta abrir diretamente pelo protocolo de pacote do Android (mais agressivo)
-        window.location.href = "android-app://" + ffPackage;
-        
-        // Fallback: Se não abrir em 500ms, tenta a Intent de Launcher padrão
-        setTimeout(() => {
-          window.location.href = "intent://#Intent;package=" + ffPackage + ";action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end";
-        }, 500);
-
     }, 1200);
   }, 1800);
 }
