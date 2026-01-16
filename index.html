@@ -41,6 +41,7 @@ input[type="checkbox"]{accent-color:var(--primary-color);transform:scale(1.1);ma
 #keyGenArea{margin-top:14px;text-align:left}
 #keyGenArea select,#keyGenArea input,#keyGenArea button{width:100%;margin-bottom:8px;padding:8px;border-radius:6px;border:none;font-weight:bold}
 #keyList{max-height:120px;overflow-y:auto;background:#111;border-radius:6px;padding:8px;margin-top:8px;font-size:12px;color:var(--primary-color)}
+.sensi-value{font-weight:bold;color:var(--primary-color)}
 </style>
 </head>
 <body>
@@ -101,7 +102,7 @@ input[type="checkbox"]{accent-color:var(--primary-color);transform:scale(1.1);ma
     <p>Ajuste Suas Opções E Clique Em INJECT Para Aplicar Antes De Entrar No Jogo.</p>
     <h2>TIKTOK:</h2>
     <a href="https://www.tiktok.com/@lost7k1ng?_r=1&_t=ZS-937OE0JuKWI" target="_blank">@lostzada7king</a>
-    <div id="temaButtons">
+    <div id="temaButtons" style="margin-top:15px;">
       <button id="temaAzul">AZUL</button>
       <button id="temaAmarelo">AMARELO</button>
       <button id="temaRosa">ROSA</button>
@@ -112,13 +113,13 @@ input[type="checkbox"]{accent-color:var(--primary-color);transform:scale(1.1);ma
   <div id="screenSensiAndroid" class="screen">
     <h1>SENSI ANDROID</h1>
     <div class="subtitulo">Sensibilidade Gerada Para Android</div>
-    <div id="sensiBoxAndroid" class="sensiBox">
-      <label class="sensi-label">Geral: <span class="sensi-value" id="sensiGeralAndroid">--</span></label>
-      <label class="sensi-label">Red Dot: <span class="sensi-value" id="sensiRedDotAndroid">--</span></label>
-      <label class="sensi-label">2x: <span class="sensi-value" id="sensi2xAndroid">--</span></label>
-      <label class="sensi-label">4x: <span class="sensi-value" id="sensi4xAndroid">--</span></label>
-      <label class="sensi-label">Botão: <span class="sensi-value" id="sensiBotaoAndroid">--</span></label>
-      <label class="sensi-label">DPI: <span class="sensi-value" id="sensiDpiAndroid">--</span></label>
+    <div id="sensiBoxAndroid" style="text-align:left; padding:10px;">
+      <p>Geral: <span class="sensi-value" id="sensiGeralAndroid">--</span></p>
+      <p>Red Dot: <span class="sensi-value" id="sensiRedDotAndroid">--</span></p>
+      <p>2x: <span class="sensi-value" id="sensi2xAndroid">--</span></p>
+      <p>4x: <span class="sensi-value" id="sensi4xAndroid">--</span></p>
+      <p>Botão: <span class="sensi-value" id="sensiBotaoAndroid">--</span></p>
+      <p>DPI: <span class="sensi-value" id="sensiDpiAndroid">--</span></p>
       <button class="btn" id="btnGerarSensiAndroid">GERAR SENSI</button>
     </div>
   </div>
@@ -126,25 +127,30 @@ input[type="checkbox"]{accent-color:var(--primary-color);transform:scale(1.1);ma
   <div id="screenSensiIphone" class="screen">
     <h1>SENSI IPHONE</h1>
     <div class="subtitulo">Sensibilidade Gerada Para iPhone</div>
-    <div id="sensiBoxIphone" class="sensiBox">
-      <label class="sensi-label">Geral: <span class="sensi-value" id="sensiGeralIphone">--</span></label>
-      <label class="sensi-label">Red Dot: <span class="sensi-value" id="sensiRedDotIphone">--</span></label>
-      <label class="sensi-label">2x: <span class="sensi-value" id="sensi2xIphone">--</span></label>
-      <label class="sensi-label">4x: <span class="sensi-value" id="sensi4xIphone">--</span></label>
-      <label class="sensi-label">Botão: <span class="sensi-value" id="sensiBotaoIphone">--</span></label>
-      <label class="sensi-label">Ciclos: <span class="sensi-value" id="sensiCiclosIphone">--</span></label>
+    <div id="sensiBoxIphone" style="text-align:left; padding:10px;">
+      <p>Geral: <span class="sensi-value" id="sensiGeralIphone">--</span></p>
+      <p>Red Dot: <span class="sensi-value" id="sensiRedDotIphone">--</span></p>
+      <p>2x: <span class="sensi-value" id="sensi2xIphone">--</span></p>
+      <p>4x: <span class="sensi-value" id="sensi4xIphone">--</span></p>
+      <p>Botão: <span class="sensi-value" id="sensiBotaoIphone">--</span></p>
+      <p>Ciclos: <span class="sensi-value" id="sensiCiclosIphone">--</span></p>
       <button class="btn" id="btnGerarSensiIphone">GERAR SENSI</button>
     </div>
   </div>
 
   <div id="screenKeyGen" class="screen">
     <h1>GERAR KEYS CLIENTE</h1>
-    <div class="subtitulo">As chaves geradas aqui não terão acesso a esta tela.</div>
+    <div class="subtitulo">Painel de Administração de Keys</div>
     <label>Tipo de Key:</label>
-    <select id="keyType"><option value="1h">1 Hora</option><option value="1d">1 Dia</option><option value="1w">1 Semana</option><option value="1m">1 Mês</option></select>
+    <select id="keyType" style="width:100%; padding:8px; border-radius:5px; margin-bottom:10px;">
+        <option value="1h">1 Hora</option>
+        <option value="1d">1 Dia</option>
+        <option value="1w">1 Semana</option>
+        <option value="1m">1 Mês</option>
+    </select>
     <label>Quantidade:</label>
-    <input id="keyQty" type="number" min="1" max="999" value="1">
-    <button class="btn" id="btnGerarKey">GERAR KEYS CLIENTE</button>
+    <input id="keyQty" type="number" min="1" max="999" value="1" style="width:100%; padding:8px; border-radius:5px; margin-bottom:10px;">
+    <button class="btn" id="btnGerarKey">GERAR KEYS</button>
     <div id="keyList"></div>
   </div>
 </div>
@@ -155,163 +161,164 @@ input[type="checkbox"]{accent-color:var(--primary-color);transform:scale(1.1);ma
 <audio id="rainAudio" src="https://www.soundjay.com/nature/rain-01.mp3" autoplay loop playsinline></audio>
 
 <script>
-/* ===== TELA LISO + ZERO-DELAY ===== */
-(function suavizaTela(){
-  const css=document.createElement('style');
-  css.textContent=`body,canvas,div,button,input,img,a,label,span{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;image-rendering:-webkit-optimize-contrast;transform:translateZ(0);backface-visibility:hidden;perspective:1000;}`;
-  document.head.appendChild(css);
-  if(typeof document.body.style.touchAction==='string')document.body.style.touchAction='manipulation';
-})();
-(function zeroDelay(){
-  window.setZeroTimeout=function(fn){
-    const ch=new MessageChannel();ch.port2.onmessage=()=>fn();ch.port1.postMessage(null);
-  };
-  const _st=window.setTimeout;
-  window.setTimeout=function(fn,delay,...args){
-    return delay<51?setZeroTimeout(()=>fn(...args)):_st(fn,delay,...args);
-  };
-})();
+/* ===== SISTEMA LISO ===== */
+(function(){const css=document.createElement('style');css.textContent=`body,canvas,div,button,input,img,a,label,span{-webkit-font-smoothing:antialiased;image-rendering:-webkit-optimize-contrast;transform:translateZ(0);}`;document.head.appendChild(css);})();
 
-/* ===== LOGIN / KEYS CORRIGIDO ===== */
+/* ===== LOGIN / DATABASE ===== */
+const keysDB = JSON.parse(localStorage.getItem('keysDB') || '{}');
+function saveDB() { localStorage.setItem('keysDB', JSON.stringify(keysDB)); }
+
 const btnLogin = document.getElementById('btnLogin');
 const keyInput = document.getElementById('keyInput');
 const loginBox = document.getElementById('loginBox');
 const painel = document.getElementById('painel-principal');
 const msgSucesso = document.getElementById('msgSucesso');
 const btnKeyGen = document.getElementById('btnKeyGen');
-const keyList = document.getElementById('keyList');
-let userRole = '';
-
-const keysDB = JSON.parse(localStorage.getItem('keysDB') || '{}');
-
-function saveDB() {
-    localStorage.setItem('keysDB', JSON.stringify(keysDB));
-}
-
-function keyExpired(k) {
-    if (!k || !k.expire) return true;
-    return Date.now() > k.expire;
-}
 
 btnLogin.addEventListener('click', () => {
-    let inputVal = keyInput.value.trim().toUpperCase();
-
-    if (inputVal === '102938') {
-        userRole = 'adm';
-        msgSucesso.textContent = "Bem-vindo DONO!";
+    let val = keyInput.value.trim().toUpperCase();
+    if (val === '102938') {
         btnKeyGen.style.display = 'block';
-        entrarNoPainel();
+        entrarNoPainel("Bem-vindo DONO!");
         return;
     }
-
-    if (keysDB[inputVal]) {
-        if (keyExpired(keysDB[inputVal])) {
-            msgSucesso.textContent = "Key expirada!";
-            msgSucesso.classList.add("show");
-            setTimeout(() => msgSucesso.classList.remove("show"), 2000);
-            delete keysDB[inputVal];
-            saveDB();
+    if (keysDB[val]) {
+        if (Date.now() > keysDB[val].expire) {
+            alert("Key Expirada!");
             return;
         }
-        userRole = keysDB[inputVal].role;
-        msgSucesso.textContent = (userRole === 'adm' ? "Bem-vindo ADM!" : "Bem-vindo Cliente!");
-        btnKeyGen.style.display = (userRole === 'adm' ? 'block' : 'none');
-        entrarNoPainel();
+        btnKeyGen.style.display = (keysDB[val].role === 'adm' ? 'block' : 'none');
+        entrarNoPainel("Acesso Autorizado!");
     } else {
-        msgSucesso.textContent = "Key inválida!";
-        msgSucesso.classList.add("show");
-        setTimeout(() => msgSucesso.classList.remove("show"), 2000);
+        alert("Key Inválida!");
     }
 });
 
-function entrarNoPainel() {
+function entrarNoPainel(txt) {
+    msgSucesso.textContent = txt;
     msgSucesso.classList.add("show");
     setTimeout(() => {
         msgSucesso.classList.remove("show");
-        loginBox.style.transition = 'opacity .5s';
-        loginBox.style.opacity = '0';
-        setTimeout(() => {
-            loginBox.style.display = 'none';
-            painel.style.display = 'block';
-            setTimeout(() => painel.style.opacity = '1', 50);
-        }, 500);
+        loginBox.style.display = 'none';
+        painel.style.display = 'block';
+        setTimeout(() => painel.style.opacity = '1', 50);
     }, 1500);
 }
 
 /* ===== GERADOR DE KEYS ===== */
 document.getElementById('btnGerarKey').addEventListener('click', () => {
     const tipo = document.getElementById('keyType').value;
-    const qty = parseInt(document.getElementById('keyQty').value, 10);
+    const qty = parseInt(document.getElementById('keyQty').value);
+    const list = document.getElementById('keyList');
     for (let i = 0; i < qty; i++) {
-        const randomStr = Math.random().toString(36).substring(2, 7).toUpperCase();
-        const key = `LOST-${randomStr}`;
+        const key = "LOST-" + Math.random().toString(36).substring(2, 7).toUpperCase();
         let exp = Date.now();
         if (tipo === '1h') exp += 3600000;
         else if (tipo === '1d') exp += 86400000;
         else if (tipo === '1w') exp += 604800000;
         else if (tipo === '1m') exp += 2592000000;
         keysDB[key] = { role: 'cliente', expire: exp };
-        const dataExp = new Date(exp).toLocaleString();
-        keyList.innerHTML += `<div><strong>${key}</strong> - Expira: ${dataExp}</div>`;
+        list.innerHTML += `<div>${key} (${new Date(exp).toLocaleDateString()})</div>`;
     }
     saveDB();
 });
 
 /* ===== NAVEGAÇÃO ===== */
-const tabs=[{btn:'btnFFH4X',screen:'screenOpcoes'},{btn:'btnInfo',screen:'screenInfo'},{btn:'btnSensiAndroid',screen:'screenSensiAndroid'},{btn:'btnSensiIphone',screen:'screenSensiIphone'},{btn:'btnKeyGen',screen:'screenKeyGen'}];
-tabs.forEach(t=>{const b=document.getElementById(t.btn),s=document.getElementById(t.screen);b.addEventListener('click',()=>{tabs.forEach(x=>{document.getElementById(x.btn).classList.remove('active');document.getElementById(x.screen).classList.remove('active');});b.classList.add('active');s.classList.add('active');});});
+const tabs = [
+    {btn:'btnFFH4X', screen:'screenOpcoes'},
+    {btn:'btnInfo', screen:'screenInfo'},
+    {btn:'btnSensiAndroid', screen:'screenSensiAndroid'},
+    {btn:'btnSensiIphone', screen:'screenSensiIphone'},
+    {btn:'btnKeyGen', screen:'screenKeyGen'}
+];
+tabs.forEach(t => {
+    document.getElementById(t.btn).addEventListener('click', () => {
+        tabs.forEach(x => {
+            document.getElementById(x.btn).classList.remove('active');
+            document.getElementById(x.screen).classList.remove('active');
+        });
+        document.getElementById(t.btn).classList.add('active');
+        document.getElementById(t.screen).classList.add('active');
+    });
+});
 
 /* ===== FOV ===== */
-const fov=document.getElementById("fov"),fovValue=document.getElementById("fovValue");
-fov.addEventListener("input",()=>fovValue.textContent=fov.value);
-const fovCanvas=document.getElementById('fovCanvas'),ctxFov=fovCanvas.getContext('2d');
-function resizeFov(){fovCanvas.width=window.innerWidth;fovCanvas.height=window.innerHeight;}
-window.addEventListener('resize',resizeFov);resizeFov();
-function drawFovCircle(){ctxFov.clearRect(0,0,fovCanvas.width,fovCanvas.height);if(document.getElementById('showFovCircle').checked){const centerX=fovCanvas.width/2,centerY=fovCanvas.height/2,radius=parseInt(fov.value,10);ctxFov.beginPath();ctxFov.arc(centerX,centerY,radius,0,2*Math.PI);ctxFov.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();ctxFov.lineWidth=4;ctxFov.stroke();}requestAnimationFrame(drawFovCircle);}
-drawFovCircle();
-
-/* ===== AUX BUTTONS ===== */
-['tipoFocoButtons','auxilioHeadButtons'].forEach(id=>{const btns=document.querySelectorAll(`#${id} .aux-btn`);btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');}));});
-
-/* ===== INJECT (FORÇANDO ABERTURA PELO PROTOCOLO DE PACOTE) ===== */
-function injectAction(){
-  document.getElementById('bannerInject').style.display="block";
-  msgSucesso.textContent="INJETANDO CÓDIGOS...";
-  msgSucesso.classList.add("show");
-  
-  setTimeout(()=>{
-    msgSucesso.textContent="CÓDIGOS INJETADOS!!! 😈";
-    
-    setTimeout(()=>{
-        msgSucesso.classList.remove("show");
-        
-        // Abre o Free Fire usando o protocolo direto que pula a Play Store
-        // Se pedir permissão para abrir em outro app, clique em SIM
-        window.location.replace("intent://#Intent;package=com.dts.freefireth;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end");
-        
-    }, 1200);
-  }, 1800);
+const fov = document.getElementById("fov"), fovVal = document.getElementById("fovValue");
+fov.addEventListener("input", () => fovVal.textContent = fov.value);
+const fovCanvas = document.getElementById('fovCanvas'), ctxFov = fovCanvas.getContext('2d');
+function resizeFov() { fovCanvas.width = window.innerWidth; fovCanvas.height = window.innerHeight; }
+window.addEventListener('resize', resizeFov); resizeFov();
+function drawFov() {
+    ctxFov.clearRect(0,0,fovCanvas.width,fovCanvas.height);
+    if(document.getElementById('showFovCircle').checked) {
+        ctxFov.beginPath();
+        ctxFov.arc(fovCanvas.width/2, fovCanvas.height/2, parseInt(fov.value), 0, Math.PI*2);
+        ctxFov.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+        ctxFov.lineWidth = 3; ctxFov.stroke();
+    }
+    requestAnimationFrame(drawFov);
 }
-document.getElementById("btnInject").addEventListener("click",injectAction);
-document.getElementById("btnInjectInfo").addEventListener("click",injectAction);
+drawFov();
 
-/* ===== SENSI ANDROID ===== */
-function gerarSensiAndroid(){const g=Math.floor(Math.random()*(200-80+1)+80),r=Math.floor(g*.9),x2=Math.floor(g*.8),x4=Math.floor(g*.7),b=Math.floor(Math.random()*(60-30+1)+30),d=Math.floor(411+((960-411)*(200-g)/(200-80)));document.getElementById("sensiGeralAndroid").textContent=g;document.getElementById("sensiRedDotAndroid").textContent=r;document.getElementById("sensi2xAndroid").textContent=x2;document.getElementById("sensi4xAndroid").textContent=x4;document.getElementById("sensiBotaoAndroid").textContent=b;document.getElementById("sensiDpiAndroid").textContent=d;}
-document.getElementById("btnGerarSensiAndroid").addEventListener("click",gerarSensiAndroid);
+/* ===== BOTÕES AUXILIARES ===== */
+document.querySelectorAll('.aux-btn').forEach(b => {
+    b.addEventListener('click', function() {
+        this.parentElement.querySelectorAll('.aux-btn').forEach(x => x.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
 
-/* ===== SENSI IPHONE ===== */
-function gerarSensiIphone(){const g=Math.floor(Math.random()*(200-80+1)+80),r=Math.floor(g*.9),x2=Math.floor(g*.8),x4=Math.floor(g*.7),b=Math.floor(Math.random()*(60-30+1)+30),c=g>=160?2:g>=120?4:6;document.getElementById("sensiGeralIphone").textContent=g;document.getElementById("sensiRedDotIphone").textContent=r;document.getElementById("sensi2xIphone").textContent=x2;document.getElementById("sensi4xIphone").textContent=x4;document.getElementById("sensiBotaoIphone").textContent=b;document.getElementById("sensiCiclosIphone").textContent=c;}
-document.getElementById("btnGerarSensiIphone").addEventListener("click",gerarSensiIphone);
+/* ===== INJECT & ABRIR FREE FIRE (VERSÃO DEFINITIVA) ===== */
+function injectAction() {
+    document.getElementById('bannerInject').style.display = "block";
+    msgSucesso.textContent = "INJETANDO CÓDIGOS...";
+    msgSucesso.classList.add("show");
 
-/* ===== ESTRELAS LOGIN ===== */
-const canvasLoginStars=document.getElementById('loginStarsCanvas'),ctxLoginStars=canvasLoginStars.getContext('2d');
-function resizeLoginStars(){canvasLoginStars.width=window.innerWidth;canvasLoginStars.height=window.innerHeight;}
-window.addEventListener('resize',resizeLoginStars);resizeLoginStars();
-let starsLogin=[];function initLoginStars(count){starsLogin=[];for(let i=0;i<count;i++)starsLogin.push({x:Math.random()*canvasLoginStars.width,y:Math.random()*canvasLoginStars.height,radius:1+Math.random()*2,speed:.2+Math.random()*.3});}
-function drawLoginStars(){ctxLoginStars.clearRect(0,0,canvasLoginStars.width,canvasLoginStars.height);starsLogin.forEach(s=>{ctxLoginStars.beginPath();ctxLoginStars.arc(s.x,s.y,s.radius,0,2*Math.PI);ctxLoginStars.fillStyle="white";ctxLoginStars.fill();s.y+=s.speed;if(s.y>canvasLoginStars.height){s.y=0;s.x=Math.random()*canvasLoginStars.width;}});requestAnimationFrame(drawLoginStars);}
-initLoginStars(150);drawLoginStars();
+    setTimeout(() => {
+        msgSucesso.textContent = "CÓDIGOS INJETADOS!!! 😈";
+        setTimeout(() => {
+            msgSucesso.classList.remove("show");
+            // Comando Intent para abrir o Free Fire e ignorar a Play Store
+            const intent = "intent://#Intent;package=com.dts.freefireth;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;S.browser_fallback_url=intent%3A%2F%2F%23Intent%3Bpackage%3Dcom.dts.freefireth%3Baction%3Dandroid.intent.action.MAIN%3Bcategory%3Dandroid.intent.category.LAUNCHER%3Bend;end";
+            window.location.href = intent;
+        }, 1200);
+    }, 1800);
+}
+document.getElementById("btnInject").addEventListener("click", injectAction);
+document.getElementById("btnInjectInfo").addEventListener("click", injectAction);
 
-/* ===== TEMAS ===== */
+/* ===== SENSIBILIDADES ===== */
+document.getElementById("btnGerarSensiAndroid").addEventListener("click", () => {
+    document.getElementById("sensiGeralAndroid").textContent = Math.floor(Math.random()*21+80);
+    document.getElementById("sensiRedDotAndroid").textContent = Math.floor(Math.random()*21+85);
+    document.getElementById("sensi2xAndroid").textContent = Math.floor(Math.random()*21+90);
+    document.getElementById("sensi4xAndroid").textContent = Math.floor(Math.random()*21+90);
+    document.getElementById("sensiBotaoAndroid").textContent = Math.floor(Math.random()*11+45);
+    document.getElementById("sensiDpiAndroid").textContent = Math.floor(Math.random()*301+500);
+});
+document.getElementById("btnGerarSensiIphone").addEventListener("click", () => {
+    document.getElementById("sensiGeralIphone").textContent = Math.floor(Math.random()*11+90);
+    document.getElementById("sensiRedDotIphone").textContent = Math.floor(Math.random()*11+90);
+    document.getElementById("sensi2xIphone").textContent = "100";
+    document.getElementById("sensi4xIphone").textContent = "100";
+    document.getElementById("sensiBotaoIphone").textContent = Math.floor(Math.random()*11+40);
+    document.getElementById("sensiCiclosIphone").textContent = "2";
+});
+
+/* ===== ESTRELAS E TEMAS ===== */
+const cvsS = document.getElementById('loginStarsCanvas'), ctxS = cvsS.getContext('2d');
+function resS() { cvsS.width=window.innerWidth; cvsS.height=window.innerHeight; }
+window.addEventListener('resize', resS); resS();
+let stars = [];
+for(let i=0; i<100; i++) stars.push({x:Math.random()*window.innerWidth, y:Math.random()*window.innerHeight, s:Math.random()*2});
+function drawS() {
+    ctxS.clearRect(0,0,cvsS.width,cvsS.height);
+    ctxS.fillStyle="white";
+    stars.forEach(p => { ctxS.beginPath(); ctxS.arc(p.x, p.y, p.s, 0, Math.PI*2); ctxS.fill(); p.y+=0.5; if(p.y>cvsS.height)p.y=0; });
+    requestAnimationFrame(drawS);
+}
+drawS();
+
 document.getElementById('temaAzul').addEventListener('click',()=>document.documentElement.style.setProperty('--primary-color','blue'));
 document.getElementById('temaAmarelo').addEventListener('click',()=>document.documentElement.style.setProperty('--primary-color','yellow'));
 document.getElementById('temaRosa').addEventListener('click',()=>document.documentElement.style.setProperty('--primary-color','pink'));
